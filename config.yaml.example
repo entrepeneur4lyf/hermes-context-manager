@@ -1,0 +1,65 @@
+# Hermes Context Manager v2 Configuration
+
+enabled: true
+debug: false
+
+manual_mode:
+  enabled: false
+  automatic_strategies: true
+
+compress:
+  max_context_percent: 0.8
+  min_context_percent: 0.4
+  protected_tools:
+    - write_file
+    - patch
+
+strategies:
+  deduplication:
+    enabled: true
+    protected_tools: []
+  purge_errors:
+    enabled: true
+    turns: 4
+    protected_tools: []
+
+short_circuits:
+  enabled: true
+
+truncation:
+  enabled: true
+  max_lines: 50
+  head_lines: 10
+  tail_lines: 10
+  min_content_length: 500
+
+background_compression:
+  enabled: true
+  protect_recent_turns: 3
+
+analytics:
+  # Persistent SQLite-backed cumulative savings store. One row per
+  # (session, strategy) is written at session end. Survives across
+  # sessions, projects, days; powers the `hmc_control analytics` action.
+  enabled: true
+  retention_days: 90        # on-write TTL — older rows are pruned automatically
+  db_path: ""               # empty = ~/.hermes/hmc_state/analytics.db
+                            # honors HMC_DB_PATH env var override
+
+code_filter:
+  # Code-aware compression: strips function/class/struct bodies while
+  # preserving signatures, imports, and top-level constants. The biggest
+  # token-savings win for tool outputs that contain source code.
+  # Two-pass pipeline: comment stripping (preserves doc comments) then
+  # body elision. Indentation-aware Python path; string-aware brace
+  # counting for Rust/Go/JS/TS so string literals containing { } don't
+  # corrupt the depth tracker.
+  enabled: true
+  languages:
+    - python
+    - javascript
+    - typescript
+    - rust
+    - go
+  min_lines: 30             # don't filter snippets shorter than this
+  preserve_docstrings: true # keep Python triple-quotes / Rust /// / JSDoc

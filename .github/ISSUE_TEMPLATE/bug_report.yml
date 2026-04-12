@@ -1,0 +1,96 @@
+name: Bug report
+description: Report a problem with HMC
+labels: ["bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug. The fields below are required — they're the information I need to reproduce the issue without guessing. Bugs without reproducible steps are closed unanswered.
+
+  - type: input
+    id: hmc-version
+    attributes:
+      label: HMC version
+      description: Run `hermes plugins list | grep hermes-context-manager` or check `plugin.yaml`.
+      placeholder: "0.3.8"
+    validations:
+      required: true
+
+  - type: input
+    id: hermes-version
+    attributes:
+      label: Hermes Agent version
+      description: Run `hermes --version`.
+      placeholder: "e.g. 1.2.3"
+    validations:
+      required: true
+
+  - type: input
+    id: python-version
+    attributes:
+      label: Python version
+      description: Run `python --version`. HMC requires 3.11+.
+      placeholder: "3.12.1"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating system
+      options:
+        - Linux
+        - macOS
+        - Windows (WSL)
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Describe the observed behavior.
+      placeholder: "When I ran X, I expected Y but saw Z."
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      description: The exact sequence of commands or actions that triggers the bug. A minimal reproduction beats a long description every time.
+      placeholder: |
+        1. Start Hermes with HMC installed
+        2. Run `/hmc dashboard action=start`
+        3. ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: stats-output
+    attributes:
+      label: hmc_control stats output
+      description: Paste the output of `/hmc stats` from the affected session, if applicable. This captures what strategies fired and what savings were tracked.
+      render: json
+    validations:
+      required: false
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log output
+      description: Any error messages from `gateway.log` or `errors.log` in `~/.hermes/logs/`. Please redact anything sensitive.
+      render: text
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Confirmation
+      options:
+        - label: I have searched existing issues and this is not a duplicate
+          required: true
+        - label: I can reproduce this reliably with the steps above
+          required: true

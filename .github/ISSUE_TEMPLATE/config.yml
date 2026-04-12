@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Question or general discussion
+    url: https://github.com/entrepeneur4lyf/hermes-context-manager/discussions
+    about: For questions about how HMC works, configuration help, or general discussion. Please use Discussions instead of Issues so the bug tracker stays actionable.
+  - name: Hermes Agent project
+    url: https://github.com/NousResearch/hermes-agent
+    about: For bugs in Hermes Agent itself (not HMC), please file in the upstream repository.

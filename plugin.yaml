@@ -1,0 +1,11 @@
+name: hermes-context-manager
+version: 0.3.8
+description: Silent-first context optimization for the Hermes agent gateway
+author: "Shawn McAllister <https://x.com/entrepeneur4lyf>"
+provides_tools:
+  - hmc_control
+provides_hooks:
+  - pre_tool_call
+  - post_tool_call
+  - pre_llm_call
+  - on_session_end

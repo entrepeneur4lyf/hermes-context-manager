@@ -1,0 +1,49 @@
+name: Feature request
+description: Suggest a new capability or change to existing behavior
+labels: ["feature", "needs-discussion"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        HMC is maintained solo. Feature requests are welcome, but ones that clearly identify a real problem (with an actual user or workload behind it) get prioritized over ones framed as "it would be cool if…". Please describe the problem before the solution.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve?
+      description: Describe the real situation where you'd want this. If you're just guessing a feature might be useful, please file it as a Discussion instead of an Issue.
+      placeholder: "When I'm doing X, HMC currently does Y. I want Z because…"
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behavior
+      description: What should HMC do differently? Be specific about trigger conditions, config knobs, hooks affected, etc.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives you've considered
+      description: Have you tried a workaround? Is there an existing config option that almost works? What makes it not enough?
+    validations:
+      required: false
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: Workload where this matters
+      description: What kind of Hermes session would see the benefit? (code review, long agent loops, specific model, etc.)
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Confirmation
+      options:
+        - label: I have searched existing issues and discussions for a similar request
+          required: true

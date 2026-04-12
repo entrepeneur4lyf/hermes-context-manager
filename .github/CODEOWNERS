@@ -1,0 +1,10 @@
+# HMC code ownership.
+#
+# Every PR that touches files in this repo requires review from the owners
+# listed here.  Configured at GitHub via branch protection rules +
+# "Require review from Code Owners".
+#
+# When CodeRabbit or GitHub Copilot review is installed on the repo, they
+# can be added here as additional reviewers (e.g. `* @entrepeneur4lyf @coderabbitai`).
+
+* @entrepeneur4lyf

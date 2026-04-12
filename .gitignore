@@ -1,0 +1,11 @@
+.pytest_cache/
+__pycache__/
+*.pyc
+.venv/
+dist/
+build/
+
+# Plugin-local runtime config — generated from config.yaml.example on first
+# load by HermesContextManagerPlugin._ensure_config_exists.  Tracking it
+# would cause `git pull` to clobber user customizations.
+config.yaml

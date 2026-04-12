@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hermes-context-manager"
+version = "0.3.8"
+description = "Silent-first context optimization plugin for the Hermes agent gateway"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [
+  { name = "Shawn McAllister" }
+]
+dependencies = [
+  "PyYAML>=6.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/entrepeneur4lyf/hermes-context-manager"
+Repository = "https://github.com/entrepeneur4lyf/hermes-context-manager"
+Issues = "https://github.com/entrepeneur4lyf/hermes-context-manager/issues"
+Author = "https://x.com/entrepeneur4lyf"
